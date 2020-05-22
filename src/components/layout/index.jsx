@@ -1,5 +1,6 @@
 import React from 'react'
-import StyleBox from '../1样式'
+// import StyleBox from '../1styleDemo'
+import ComponentDemo from '../2componentDemo'
 
 export default class Layout extends React.Component{
     constructor(){
@@ -10,7 +11,7 @@ export default class Layout extends React.Component{
         return(
             <div className='layout'>
                 <h1>layout</h1>
-                <StyleBox></StyleBox>
+                <ComponentDemo></ComponentDemo>
             </div>
         )
     }
