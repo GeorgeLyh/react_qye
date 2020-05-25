@@ -4,9 +4,7 @@ import React from 'react';
 export default class ComponentDemo extends React.Component{
     constructor(){
         super()
-        this.state={
-
-        }
+        this.state={}
     }
     render(){
         return(

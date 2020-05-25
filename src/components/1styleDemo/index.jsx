@@ -3,7 +3,8 @@ import './style.scss';
 import cssobj from './style2.module.css';
 console.log(cssobj)
 
-//第一种 内联样式
+//第一种>>>
+// 内联样式  这样可以更好的理解  为什么 style为什么需要两层花括号
 let styleObj = {
     color: 'red',
     background: '#fff',
@@ -14,6 +15,8 @@ let styleObj = {
 //第二种外联样式>>>>
 //第1种使用module的形式 命名（index.module.css）；
 //第2种就是sass的 scss后缀名的形式。
+
+//第三方插件 classnames (npm 官网搜)、styled-components
 
 
 export default class StyleBox extends React.Component {

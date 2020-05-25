@@ -1,21 +1,25 @@
 import React from 'react'
-
+import ChildBox from './ChildComponent'
 //1、子组件向父组件传递参数 与父传子参数 是一样的
 
 //2、父组件向子组件传递参数
 export default class Subcomponent extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {}
+    constructor() {
+        super();
+        this.state = {
+            name: 'parent>>child>>张三',
+            age: 12
+        }
     }
-    transmitParent = () => {
-        this.props.handleChange(++this.props.parentState.age)
+    setChildHandle = (...args) => {
+        this.setState({
+            age: args[0]
+        })
     }
     render() {
         return (
             <div className='subcomonent'>
-                <h2>{this.props.parentState.name}的年龄为{this.props.parentState.age}</h2>
-                <button onClick={this.transmitParent}>子组件>父组件年龄+1</button>
+                <ChildBox  parentState={this.state} handleChange={this.setChildHandle}/>
             </div>
         )
     }

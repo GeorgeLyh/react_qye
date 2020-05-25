@@ -35,12 +35,15 @@ let fictitiousDom = {
 export default class ChildComponent extends React.Component {
     render() {
         return (
-            //createElement方法有很多 参数，前两个参数是固定的，第一个是标签名，第二个是标签属性
-            //React.createElement(
-            //   type,
-            //   [props],
-            //   [...children]
-            // )
+            /*  createElement方法有很多 参数，前两个参数是固定的，第一个是标签名，第二个是标签属性
+                React.createElement(
+                    type,
+                    [props],
+                    [...children]
+                )
+                React.cloneElement() 几乎等同于：
+                <element.type {...element.props} {...props}>{children}</element.type> 
+            */
             React.createElement(
                 'div',
                 {
