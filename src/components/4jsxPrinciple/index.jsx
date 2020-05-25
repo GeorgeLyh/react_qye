@@ -1,6 +1,6 @@
 import React from 'react'
 //通常书写 react组件是这样
-class ChildComponent1 extends React.Component {
+class ChildComponent extends React.Component {
     render() {
         return (
             <div className='box'>
@@ -30,9 +30,8 @@ let fictitiousDom = {
         //...
     ]
 }
-
 //jsx原理 >>还原 ChildComponent1
-export default class ChildComponent extends React.Component {
+class ChildComponent1 extends React.Component {
     render() {
         return (
             /*  createElement方法有很多 参数，前两个参数是固定的，第一个是标签名，第二个是标签属性
@@ -61,3 +60,5 @@ export default class ChildComponent extends React.Component {
         )
     }
 }
+
+export default ChildComponent;
