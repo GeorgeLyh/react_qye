@@ -19,10 +19,20 @@ export default class TemplateForeach extends Component {
             ]
         }
     }
+    componentDidMount(){
+        console.log("componentDidMount");
+    }
     render() {
+        console.log(123)
         return (
             <div className='listBox'>
-                {this.state.list.map(item => <Child key={item.id} {...item}></Child>)}
+                {/* 为什么渲染两次 */}
+                {/* <Child {...this.state.list}></Child> */}
+                {console.log(100000)}
+                {/* {this.state.list.map(item => {
+                    console.log(122121)
+                return <li key={item.id}>{item.name}</li>
+                })} */}
             </div>
         )
     }
