@@ -11,10 +11,13 @@ export {
 } */
 
 //如果不做任何处理的话，推荐使用这种；
-export { default as StyleDemo } from './1StyleDemo'
+/* export { default as StyleDemo } from './1StyleDemo'
 export { default as ComponentDemo } from './2ComponentDemo'
 export { default as ChildComponent } from './3ChildComponent'
 export { default as JsxPrinciple } from './4JsxPrinciple'
 export { default as InsideState } from './5InsideState'
-export { default as TemplateForeach } from './6TemplateForeach'
-export { default as ClickComponent } from './7ClickComponent'
+export { default as TemplateForeach } from './6TemplateForeach' */
+// export { default as ClickComponent } from './7ClickComponent'
+// export { default as LifecyclesComponent } from './8LifecyclesComponent'
+// export { default as IfRenderComponent } from './9IfRenderComponent'
+export { default as FormSubmit } from './10FormSubmit'

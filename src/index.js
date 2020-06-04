@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+//React.StrictMode 严格模式，不会产生新的 dom容器
 ReactDOM.render(
   <React.StrictMode>
     <App />

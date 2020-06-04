@@ -1,0 +1,14 @@
+.formBox{
+    font-size: 16px;
+    .form-item{
+        display: flex;
+        padding: 15px;
+        margin-bottom: 15px;
+        .form-label{
+            margin-right: 8px;
+            text-align: right;
+            padding: 5px;
+            width: 80px;
+        }
+    }
+}
