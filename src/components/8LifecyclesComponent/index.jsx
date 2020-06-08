@@ -1,44 +1,58 @@
-import React, { Component, PureComponent } from 'react'
+import React, { Component } from "react";
+import SonComponent from './SonComponent'
 
-export default class LifecyclesComponent extends PureComponent {
-    constructor() {
-        super()
-        this.state = {
-            num: 1,
-            arr: [0]
-        }
-        console.log("constructor")
-    }
-    static getDerivedStateFromProps() {
-        console.log("static getDerivedStateFromProps")
+
+export default class LifecyclesComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      num: 1,
+      nameList: [
+        {
+          name: "小明",
+          id: 1,
+        },
+        {
+          name: "小王",
+          id: 2,
+        },
+      ],
+    };
+  }
+  /* static getDerivedStateFromProps() {
         return null
-    }
-    componentDidMount() {
-        console.log("componentDidMount")
-    }
-    btnClick = () => {
-        this.setState(prevState => {
-            console.log(prevState)
-            return {
-                num: prevState.num + 1,
-                arr: [...prevState.arr,prevState.num]
-            }
-        })
-    }
-    /* shouldComponentUpdate(nextProps, nextState) {
+    } */
+  componentDidMount() {
+    // console.log("componentDidMount")
+  }
+  btnClick = () => {
+   /*  this.setState((prevState) => {
+      return {
+        num: prevState.num + 1,
+        nameList: prevState.nameList.concat([{name:'小李'+prevState.num,id:2+prevState.num}]),
+      };
+    },()=>{
+        console.log(this.state)
+    }); */
+    let arr = this.state.nameList.concat([{name:'小李',id:3}]);
+    this.setState({
+        num:3,
+        nameList: arr,
+      });
+  };
+  /*  shouldComponentUpdate(nextProps, nextState) {
         console.log(nextState,this.state,this.props)
         // return this.state.num != nextState.num
-        return false
+        // return false
     } */
-    render() {
-        console.log(`render:${this.state.num} 次数`)
-        return (
-            <div>
-                <button onClick={this.btnClick}>更新数据</button>
-                {this.state.arr.map((item,index)=> {
-                    return <h4 key={index}>{item}</h4>
-                })}
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <button className="btn btn-primary" onClick={this.btnClick}>更新数据</button>
+        {
+            this.state.nameList.map(item=><SonComponent value={item.name} key={item.id}></SonComponent>)
+        }
+      </div>
+    );
+  }
 }

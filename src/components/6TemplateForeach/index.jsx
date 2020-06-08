@@ -27,8 +27,7 @@ export default class TemplateForeach extends Component {
         return (
             <div className='listBox'>
                 {/* 为什么渲染两次 */}
-                {/* <Child {...this.state.list}></Child> */}
-                {console.log(100000)}
+                <Child {...this.state}></Child>
                 {/* {this.state.list.map(item => {
                     console.log(122121)
                 return <li key={item.id}>{item.name}</li>

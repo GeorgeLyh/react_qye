@@ -47,8 +47,9 @@ export default class ClickComponent extends Component {
         e.preventDefault();
         console.log('sd',e)
     }
-    hanldClick(){
+    hanldClick=()=>{
         console.log("第二种绑定事件 方式")
+        console.log(this.state.number)
     }
     render() {
         console.log("render次数为：", ++x)
@@ -59,9 +60,11 @@ export default class ClickComponent extends Component {
                 <button onClick={this.reduceNum.bind(this, 1)}>减1</button>
                 <h2>{this.state.x}</h2>
                 <h4>阻止某事件被触发</h4>
-                <a href='#' onClick={this.aClick}>触发</a>
+                {/* <a href='#' onClick={this.aClick}>触发</a> */}
 
                 <button onClick={(e)=>this.hanldClick(e,'hhh')}>第二种事件方法</button>
+                <hr/>
+                <button onClick={this.hanldClick}>触发</button>
             </div>
         )
     }
