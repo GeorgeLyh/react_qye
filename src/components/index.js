@@ -18,6 +18,7 @@ export {
 // export { default as InsideState } from './5InsideState'
 // export { default as TemplateForeach } from './6TemplateForeach'
 // export { default as ClickComponent } from './7ClickComponent'
-export { default as LifecyclesComponent } from './8LifecyclesComponent'
+// export { default as LifecyclesComponent } from './8LifecyclesComponent'
 // export { default as IfRenderComponent } from './9IfRenderComponent'
 // export { default as FormSubmit } from './10FormSubmit'
+export { default as AjaxComponent } from './11AjaxComponent'
