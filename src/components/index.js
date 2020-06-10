@@ -21,4 +21,6 @@ export {
 // export { default as LifecyclesComponent } from './8LifecyclesComponent'
 // export { default as IfRenderComponent } from './9IfRenderComponent'
 // export { default as FormSubmit } from './10FormSubmit'
-export { default as AjaxComponent } from './11AjaxComponent'
+// export { default as AjaxComponent } from './11AjaxComponent'
+// export { default as HookComponent } from './12HookComponent'
+export { default as ContextComponent } from "./13ContextComponent";

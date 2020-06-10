@@ -1,21 +1,29 @@
-import React from "react";
+import React, { createContext } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
-import { AjaxComponent as ComponentDemo } from "./components";
+import { ContextComponent as ComponentDemo } from "./components";
+
+export const { Provider, Consumer } = createContext("light");
 
 //快速创建  快捷键 1、 rfc  创建 function的 class; 2、 rcc  创建clss的 ract类
 //react提供的Fragment  是一个空标签，用来当作容器使用，和vue里面的template标签一样
 function App() {
+  let userInfo = {
+    name: "admin",
+    department: "情报局",
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="App-info">
-        <ComponentDemo></ComponentDemo>
+        <Provider value={userInfo}>
+          <ComponentDemo></ComponentDemo>
+        </Provider>
       </div>
     </div>
   );
