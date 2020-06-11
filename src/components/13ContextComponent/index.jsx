@@ -2,7 +2,7 @@ import React, { Component, createContext } from "react";
 import { Consumer } from "../../App";
 
 console.log(createContext());
-
+//这里不使用默认值的话 ，就需要在 Provider里面增加一个 value属性
 const { Provider, Consumer: MyConsumer } = createContext();
 
 export default class ContextComponent extends Component {
@@ -44,7 +44,7 @@ class BtnComponent extends Component {
     return (
       <MyConsumer>
         {(props) => {
-          return <div>MyConsumer:{props}</div>;
+          return <div>MyConsumer： {props}</div>;
         }}
       </MyConsumer>
     );

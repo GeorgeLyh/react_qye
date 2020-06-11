@@ -1,0 +1,34 @@
+{
+  "list":[
+    {
+      "id": 1,
+      "name": "xiao ming",
+      "age": 22
+    },
+    {
+      "id": 2,
+      "name": "wang li",
+      "age": 16
+    },
+    {
+      "id": 3,
+      "name": "zhang ke",
+      "age": 21
+    },
+    {
+      "id": 4,
+      "name": "li dan",
+      "age": 18
+    },
+    {
+      "id": 5,
+      "name": "qi she",
+      "age": 16
+    },
+    {
+      "id": 6,
+      "name": "lin dk",
+      "age": 29
+    }
+  ]
+}

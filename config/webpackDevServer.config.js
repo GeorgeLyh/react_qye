@@ -1,20 +1,20 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
-const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
-const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
-const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
-const ignoredFiles = require('react-dev-utils/ignoredFiles');
-const redirectServedPath = require('react-dev-utils/redirectServedPathMiddleware');
-const paths = require('./paths');
-const getHttpsConfig = require('./getHttpsConfig');
+const fs = require("fs");
+const errorOverlayMiddleware = require("react-dev-utils/errorOverlayMiddleware");
+const evalSourceMapMiddleware = require("react-dev-utils/evalSourceMapMiddleware");
+const noopServiceWorkerMiddleware = require("react-dev-utils/noopServiceWorkerMiddleware");
+const ignoredFiles = require("react-dev-utils/ignoredFiles");
+const redirectServedPath = require("react-dev-utils/redirectServedPathMiddleware");
+const paths = require("./paths");
+const getHttpsConfig = require("./getHttpsConfig");
 
-const host = process.env.HOST || '0.0.0.0';
+const host = process.env.HOST || "0.0.0.0";
 const sockHost = process.env.WDS_SOCKET_HOST;
 const sockPath = process.env.WDS_SOCKET_PATH; // default: '/sockjs-node'
 const sockPort = process.env.WDS_SOCKET_PORT;
 
-module.exports = function(proxy, allowedHost) {
+module.exports = function (proxy, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:
@@ -33,12 +33,12 @@ module.exports = function(proxy, allowedHost) {
     // specified the `proxy` setting. Finally, we let you override it if you
     // really know what you're doing with a special environment variable.
     disableHostCheck:
-      !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === 'true',
+      !proxy || process.env.DANGEROUSLY_DISABLE_HOST_CHECK === "true",
     // Enable gzip compression of generated files.
     compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
     // It will still show compile warnings and errors with this setting.
-    clientLogLevel: 'none',
+    clientLogLevel: "none",
     // By default WebpackDevServer serves physical files from current directory
     // in addition to all the virtual build products that it serves from memory.
     // This is confusing because those files won’t automatically be available in
@@ -65,7 +65,7 @@ module.exports = function(proxy, allowedHost) {
     hot: true,
     // Use 'ws' instead of 'sockjs-node' on server since we're using native
     // websockets in `webpackHotDevClient`.
-    transportMode: 'ws',
+    transportMode: "ws",
     // Prevent a WS client from getting injected as we're already including
     // `webpackHotDevClient`.
     injectClient: false,
@@ -100,8 +100,18 @@ module.exports = function(proxy, allowedHost) {
       index: paths.publicUrlOrPath,
     },
     public: allowedHost,
-    // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
-    proxy,
+    // `proxy` is run between `before` and `after` `webpack-dev-server` hooks  处理代理跨域的问题
+    // proxy,
+    proxy: {
+      "/api": {
+        target: "http://www.weather.com.cn/data/cityinfo",//中国天气网 数据
+        changeOrigin: true,
+        // secure: false,  // 如果是https接口的话，需要配置此参数
+        // pathRewrite: {
+        //   "^/api": "/",
+        // },
+      },
+    },
     before(app, server) {
       // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
       // middlewares before `redirectServedPath` otherwise will not have any effect

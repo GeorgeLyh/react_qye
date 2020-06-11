@@ -32,3 +32,11 @@ export const getPhotos = (params) => {
     method: "get",
   });
 };
+
+//获取中国天气网数据
+export const getWeather = (params) => {
+  return config({
+    url: "/api/101320101.html",
+    method: "get",
+  });
+};

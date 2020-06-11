@@ -20,7 +20,7 @@ const baseURL = "https://jsonplaceholder.typicode.com/";
 let ajax = axios.create({
   withCredentials: false, // 默认的  `withCredentials` 表示跨域请求时是否需要使用凭证
   baseURL: baseURL,
-  timeout: 10000, //如果请求话费了超过 `timeout` 的时间，请求将被中断
+  timeout: 100000, //如果请求话费了超过 `timeout` 的时间，请求将被中断
 });
 
 // 在请求或响应被 then 或 catch 处理前拦截它们。

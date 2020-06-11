@@ -4,12 +4,17 @@ import React from 'react';
 export default class ComponentDemo extends React.Component{
     constructor(){
         super()
-        this.state={}
+        this.state={
+            name:'张三',
+            pHtml:'<h2>你好</h2>'
+        }
     }
     render(){
         return(
             <div>
-                <p>通过class来定义的组件</p>
+                <p>通过class来定义的组件{this.state.name}</p>
+                {this.state.pHtml}
+                <div dangerouslySetInnerHTML={{__html:this.state.pHtml}}></div>
             </div>
         )
     }

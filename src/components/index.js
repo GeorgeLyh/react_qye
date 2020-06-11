@@ -12,7 +12,7 @@ export {
 
 //如果不做任何处理的话，推荐使用这种；
 // export { default as StyleDemo } from './1StyleDemo'
-// export { default as ComponentDemo } from './2ComponentDemo'
+export { default as ComponentDemo } from './2ComponentDemo'
 // export { default as ChildComponent } from './3ChildComponent'
 // export { default as JsxPrinciple } from './4JsxPrinciple'
 // export { default as InsideState } from './5InsideState'
@@ -21,6 +21,8 @@ export {
 // export { default as LifecyclesComponent } from './8LifecyclesComponent'
 // export { default as IfRenderComponent } from './9IfRenderComponent'
 // export { default as FormSubmit } from './10FormSubmit'
-// export { default as AjaxComponent } from './11AjaxComponent'
+export { default as AjaxComponent } from './11AjaxComponent'
 // export { default as HookComponent } from './12HookComponent'
-export { default as ContextComponent } from "./13ContextComponent";
+// export { default as ContextComponent } from "./13ContextComponent";
+// export { default as HocComponent } from "./14HocComponent";
+export { default as ReduxComponent } from "./15ReduxComponent";
