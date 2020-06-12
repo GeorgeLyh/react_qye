@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import { getTodos ,getWeather} from "../../services/getData";
-import axios from 'axios'
 export default class AjaxComponent extends PureComponent {
   constructor() {
     super();
@@ -18,12 +17,8 @@ export default class AjaxComponent extends PureComponent {
     this.setState({
       isLoading: true,
     });
-    axios.get("/api/101320101.html").then(res=>{
-      debugger;
-    })
     //获取天气网的数据 线上第三方 数据库，涉及跨域问题  需要在config/webpackDevServer.config.js 里面配置 proxy  
     getWeather().then(response=>{
-      debugger
       console.log(response)
     }).catch(error=>{
 

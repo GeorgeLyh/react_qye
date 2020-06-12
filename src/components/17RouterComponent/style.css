@@ -1,0 +1,10 @@
+.linkItem {
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  margin-right: 15px;
+  border-radius: 30px;
+}
+.routerView {
+  padding: 20px;
+}

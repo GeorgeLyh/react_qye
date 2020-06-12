@@ -16,13 +16,13 @@ import axios from "axios";
 
 //#endregion
 
-const baseURL = "https://jsonplaceholder.typicode.com/";
 let ajax = axios.create({
   withCredentials: false, // 默认的  `withCredentials` 表示跨域请求时是否需要使用凭证
-  baseURL: baseURL,
+  baseURL: process.env.PUBLIC_URL,
   timeout: 100000, //如果请求话费了超过 `timeout` 的时间，请求将被中断
 });
 
+console.log(process.env)
 // 在请求或响应被 then 或 catch 处理前拦截它们。
 
 // 添加请求拦截器

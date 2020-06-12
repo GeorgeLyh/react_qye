@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 // import { ComponentDemo } from "./components";
-import { AjaxComponent as ComponentDemo } from "./components";
+import { RouterComponent as ComponentDemo } from "./components";
 
 let userInfo = {
   name: "admin",

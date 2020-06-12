@@ -14,6 +14,7 @@ const sockHost = process.env.WDS_SOCKET_HOST;
 const sockPath = process.env.WDS_SOCKET_PATH; // default: '/sockjs-node'
 const sockPort = process.env.WDS_SOCKET_PORT;
 
+const baseURL = "https://jsonplaceholder.typicode.com/";
 module.exports = function (proxy, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
@@ -105,11 +106,12 @@ module.exports = function (proxy, allowedHost) {
     proxy: {
       "/api": {
         target: "http://www.weather.com.cn/data/cityinfo",//中国天气网 数据
+        // target: "http://www.weather.com.cn/data/cityinfo",//中国天气网 数据
         changeOrigin: true,
         // secure: false,  // 如果是https接口的话，需要配置此参数
-        // pathRewrite: {
-        //   "^/api": "/",
-        // },
+        pathRewrite: {
+          "^/api": "/",
+        },
       },
     },
     before(app, server) {
