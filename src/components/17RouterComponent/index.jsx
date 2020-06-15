@@ -6,6 +6,8 @@ import { Route, Link, BrowserRouter, Redirect } from "react-router-dom";
 //#endregion
 import "./style.scss";
 
+
+
 export default class RouterComponent extends Component {
   constructor() {
     super();
@@ -25,28 +27,34 @@ export default class RouterComponent extends Component {
         hash: "#abc",
         state: { msg: "hello" },
       },
+      redirectParams: {
+        pathname: "/LoginApp",
+        state: {
+          isRedirect: false,
+        },
+      },
     };
   }
   signIn = () => {
-      this.setState({
-          isRedirect:true
-      })
+    this.setState({
+      isRedirect: false,
+    });
   };
   render() {
     console.log(this.props);
     return (
       <div>
-        <button className="btn btn-primary" onClick={this.signIn}>
-          登录
-        </button>
         <BrowserRouter>
           <Route
             path="/test"
             component={() => <div>test- content </div>}
           ></Route>
         </BrowserRouter>
-        <BrowserRouter basename="/admin">
+        <BrowserRouter>
           <div className="nav">
+            <Link className="btn btn-primary" to={this.state.redirectParams}>
+              登录
+            </Link>
             <Link className="linkItem" to="">
               首页
             </Link>
@@ -84,10 +92,15 @@ export default class RouterComponent extends Component {
             <Route
               className="routeItem"
               path="/login"
-              component={()=><div>登录界面</div>}
+              component={() => <div>登录界面</div>}
             ></Route>
-            <Redirect to={this.state.isRedirect?"/":"/login"}></Redirect>
-            
+            <Route
+              className="routeItem"
+              path="/404"
+              component={() => <div>找不到界面</div>}
+            ></Route>
+            <Route component={LoginApp} path="/LoginApp"></Route>
+            {/* <Redirect to={this.state.isRedirect?"/":"/login"}></Redirect> */}
           </div>
         </BrowserRouter>
       </div>
@@ -100,6 +113,13 @@ function News(props) {
   return <div>新闻中心 新闻id：{props.match.params.id}</div>;
 }
 
+function LoginApp(props) {
+  if (props.location.state.isRedirect) {
+    return <Redirect to="/"></Redirect>;
+  } else {
+    return <Redirect to="/404"></Redirect>;
+  }
+}
 class Home extends Component {
   render() {
     console.log(this.props);
