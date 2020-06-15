@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Route, Link, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, Link, BrowserRouter, Redirect, Switch } from "react-router-dom";
 //#region
 //路由的三大核心组件：Route, Link, BrowserRouter
 //路由重定向组件：Redirect
 //#endregion
 import "./style.scss";
 
-
+//Switch组件 只要 匹配到了 文件就停止向下匹配;
 
 export default class RouterComponent extends Component {
   constructor() {
@@ -72,35 +72,46 @@ export default class RouterComponent extends Component {
           </div>
           {/* exact 精准匹配 */}
           <div className="routerView">
-            <Route
-              className="routeItem"
-              exact
-              path="/"
-              component={Home}
-            ></Route>
-            <Route
-              className="routeItem"
-              path="/Activity"
-              component={Activity}
-            ></Route>
-            <Route className="routeItem" path="/User" component={User}></Route>
-            <Route
-              className="routeItem"
-              path="/News/:id"
-              component={News}
-            ></Route>
-            <Route
-              className="routeItem"
-              path="/login"
-              component={() => <div>登录界面</div>}
-            ></Route>
-            <Route
-              className="routeItem"
-              path="/404"
-              component={() => <div>找不到界面</div>}
-            ></Route>
-            <Route component={LoginApp} path="/LoginApp"></Route>
-            {/* <Redirect to={this.state.isRedirect?"/":"/login"}></Redirect> */}
+            <Switch>
+              <Route
+                className="routeItem"
+                exact
+                path="/"
+                component={Home}
+              ></Route>
+              <Route
+                className="routeItem"
+                path="/Activity"
+                component={Activity}
+              ></Route>
+              <Route
+                className="routeItem"
+                path="/User"
+                component={User}
+              ></Route>
+              <Route
+                className="routeItem"
+                path="/News/:id"
+                component={News}
+              ></Route>
+              <Route
+                className="routeItem"
+                path="/login"
+                component={() => <div>登录界面</div>}
+              ></Route>
+              <Route
+                className="routeItem"
+                path="/404"
+                component={() => <div>找不到界面</div>}
+              ></Route>
+              <Route component={LoginApp} path="/LoginApp"></Route>
+              <Route
+                component={ChildComponent2}
+                exact
+                path="/ChildComponent2"
+              ></Route>
+              {/* <Redirect to={this.state.isRedirect?"/":"/login"}></Redirect> */}
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
@@ -120,6 +131,34 @@ function LoginApp(props) {
     return <Redirect to="/404"></Redirect>;
   }
 }
+
+class ChildComponent2 extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "btn子级",
+    };
+  }
+  toPage = () => {
+    // 跳转界面
+    //this.props.history的方法有 ：
+    //前进 go(1)  goForward
+    //后退  go(-1)  goBack
+    //指定跳转 push
+    // 待测方法  glisten createHref block
+    this.props.history.push("/User", this.state);
+    // this.props.history.replace("/User", this.state);//不能后退
+  };
+  render() {
+    return (
+      <div>
+        <button className="btn btn-primary" onClick={this.toPage}>
+          通过按钮跳转界面
+        </button>
+      </div>
+    );
+  }
+}
 class Home extends Component {
   render() {
     console.log(this.props);
@@ -134,6 +173,7 @@ class Activity extends Component {
 }
 class User extends Component {
   render() {
+    console.log(this.props);
     return <div> 个人中心</div>;
   }
 }
