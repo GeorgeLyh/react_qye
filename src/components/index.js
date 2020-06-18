@@ -22,9 +22,9 @@ export {
 // export { default as IfRenderComponent } from './9IfRenderComponent'
 // export { default as FormSubmit } from './10FormSubmit'
 // export { default as AjaxComponent } from './11AjaxComponent'
-// export { default as HookComponent } from './12HookComponent'
-// export { default as ContextComponent } from "./13ContextComponent";
-// export { default as HocComponent } from "./14HocComponent";
-// export { default as ReduxComponent } from "./15ReduxComponent";
-// export { default as SlotComponent } from "./16SlotComponent";
-export { default as RouterComponent } from "./17RouterComponent";
+// export { default as ComponentBox } from './12HookComponent'
+// export { default as ComponentBox } from "./13ContextComponent";
+// export { default as ComponentBox } from "./14HocComponent";
+export { default as ComponentBox } from "./15ReduxComponent";
+// export { default as ComponentBox } from "./16SlotComponent";
+// export { default as ComponentBox } from "./17RouterComponent";

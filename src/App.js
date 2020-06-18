@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 
 // import { ComponentDemo } from "./components";
-import { RouterComponent as ComponentDemo } from "./components";
+import { ComponentBox } from "./components";
 
 let userInfo = {
   name: "admin",
@@ -24,7 +24,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <div className="App-info">
-        <ComponentDemo name="cans"></ComponentDemo>
+        <ComponentBox name="cans"></ComponentBox>
       </div>
     </div>
   );

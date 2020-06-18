@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Route, Link, BrowserRouter, Redirect, Switch } from "react-router-dom";
+import { Route, Link, BrowserRouter, Redirect, Switch ,withRouter} from "react-router-dom";
+
+//1、除了 BrowserRouter 模式还有一个  HashRouter，此模式在url栏里 会有 #
+//2、去哪里  Link  ,NavLink 可以动态的给选中的导航添加active 类名
+
+//3、exact 精准匹配
+
+//4、Switch  防止重复渲染
+//5、 withRouter 就是 router的高阶组件
 //#region
 //路由的三大核心组件：Route, Link, BrowserRouter
 //路由重定向组件：Redirect
@@ -34,7 +42,11 @@ export default class RouterComponent extends Component {
         },
       },
     };
+   /*  this.props.history.listen(link=>{
+      console.log(link)
+    }) */
   }
+  
   signIn = () => {
     this.setState({
       isRedirect: false,
@@ -120,7 +132,11 @@ export default class RouterComponent extends Component {
 }
 
 function News(props) {
-  console.log(props.match.params);
+  // console.log(props.match.params);
+   //路由监听
+   props.history.listen((link)=>{
+    console.log(link)
+  })
   return <div>新闻中心 新闻id：{props.match.params.id}</div>;
 }
 
