@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default function childComponent2(props) {
-    console.log(props)
     return (
         <div className="c">
             {props.customProp}
