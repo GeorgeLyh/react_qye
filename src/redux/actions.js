@@ -1,7 +1,7 @@
-export function add(num) {
-  return { type: "ADD", data: num };
+export function add(text) {
+  return { type: "ADD_TODO", text};
 }
 
 export function del(num) {
-  return { type: "DEL", data: num };
+  return { type: "TOGGLE_TODO", text };
 }
